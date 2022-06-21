@@ -24,14 +24,15 @@ public class MySpringBootJdbcFoundationsApplication {
 
 		System.out.println("userDao.count() = " + userDao.count());
 
-
 		User updatedUser = new User("User 2", 100);
 		updatedUser.setId(1L);
-		userDao.updateUser(updatedUser);
+		userDao.update(updatedUser);
 
 		System.out.println("studentDao.findById(1L) = " + userDao.findById(1L));
+		System.out.println("userDao.findByname(\"User 2\") = " + userDao.findByname("User 2"));
 
 		userDao.delete(updatedUser);
+
 		System.out.println("userDao.count() = " + userDao.count());
 	}
 }

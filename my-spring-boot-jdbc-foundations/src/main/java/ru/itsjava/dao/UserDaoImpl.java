@@ -27,7 +27,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void updateUser(User user) {
+    public void update(User user) {
         Map<String, Object> params = Map.of("id", user.getId(), "name", user.getName(), "age", user.getAge());
 
         jdbc.update("update users set name = :name where id = :id", params);
@@ -45,6 +45,12 @@ public class UserDaoImpl implements UserDao {
     public User findById(long id) {
         Map<String, Object> params = Map.of("id", id);
         return jdbc.queryForObject("select id, name, age from users where id = :id", params, new UsersMapper());
+    }
+
+    @Override
+    public User findByname(String name) {
+        Map<String, Object> params = Map.of("name", name);
+        return jdbc.queryForObject("select id, name, age from users where name = :name", params, new UsersMapper());
     }
 
     private static class UsersMapper implements RowMapper<User> {
