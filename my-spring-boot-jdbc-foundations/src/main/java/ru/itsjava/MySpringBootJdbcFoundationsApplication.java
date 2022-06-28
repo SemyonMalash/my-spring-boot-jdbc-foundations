@@ -25,8 +25,8 @@ public class MySpringBootJdbcFoundationsApplication {
 		updatedUser.setId(1L);
 		userDao.update(updatedUser);
 
-		System.out.println("studentDao.findById(1L) = " + userDao.findById(1L));
-		System.out.println("userDao.findByname(\"User 2\") = " + userDao.findByName("User 2"));
+		System.out.println("userDao.findById(1L) = " + userDao.findById(1L));
+		System.out.println("userDao.findByName(\"User 2\") = " + userDao.findByName("User 2"));
 
 		userDao.delete(updatedUser);
 
