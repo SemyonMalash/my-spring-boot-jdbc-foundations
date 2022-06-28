@@ -48,7 +48,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public User findByname(String name) {
+    public User findByName(String name) {
         Map<String, Object> params = Map.of("name", name);
         return jdbc.queryForObject("select id, name, age from users where name = :name", params, new UsersMapper());
     }

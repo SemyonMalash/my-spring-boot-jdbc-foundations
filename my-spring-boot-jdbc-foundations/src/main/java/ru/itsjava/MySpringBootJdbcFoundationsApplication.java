@@ -7,13 +7,10 @@ import org.springframework.context.ApplicationContext;
 import ru.itsjava.dao.UserDao;
 import ru.itsjava.domain.User;
 
-import java.sql.SQLException;
-
-
 @SpringBootApplication
 public class MySpringBootJdbcFoundationsApplication {
 
-	public static void main(String[] args) throws SQLException {
+	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(MySpringBootJdbcFoundationsApplication.class, args);
 
 		UserDao userDao = context.getBean(UserDao.class);
@@ -29,7 +26,7 @@ public class MySpringBootJdbcFoundationsApplication {
 		userDao.update(updatedUser);
 
 		System.out.println("studentDao.findById(1L) = " + userDao.findById(1L));
-		System.out.println("userDao.findByname(\"User 2\") = " + userDao.findByname("User 2"));
+		System.out.println("userDao.findByname(\"User 2\") = " + userDao.findByName("User 2"));
 
 		userDao.delete(updatedUser);
 
