@@ -7,10 +7,12 @@ import org.springframework.context.ApplicationContext;
 import ru.itsjava.dao.UserDao;
 import ru.itsjava.domain.User;
 
+import java.sql.SQLException;
+
 @SpringBootApplication
 public class MySpringBootJdbcFoundationsApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		ApplicationContext context = SpringApplication.run(MySpringBootJdbcFoundationsApplication.class, args);
 
 		UserDao userDao = context.getBean(UserDao.class);
@@ -31,6 +33,8 @@ public class MySpringBootJdbcFoundationsApplication {
 		userDao.delete(updatedUser);
 
 		System.out.println("userDao.count() = " + userDao.count());
+
+		Console.main(args);
 	}
 }
 
