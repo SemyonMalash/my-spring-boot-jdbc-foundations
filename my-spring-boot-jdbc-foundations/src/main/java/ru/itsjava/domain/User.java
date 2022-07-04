@@ -11,5 +11,6 @@ public class User {
     private long id;
     private final String name;
     private final int age;
+    private final Faculty faculty;
 }
 
